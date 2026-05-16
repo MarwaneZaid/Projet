@@ -1,0 +1,15 @@
+# Red Team lab — compléter en phase 2
+# CALDERA : https://github.com/mitre/caldera
+# OpenVAS : stack lourde — souvent VM dédiée plutôt que compose all-in-one
+
+services:
+  # caldera:
+  #   image: mitre/caldera:latest
+  #   ports:
+  #     - "8888:8888"
+  #   networks:
+  #     - lab-rt
+
+networks:
+  lab-rt:
+    driver: bridge
