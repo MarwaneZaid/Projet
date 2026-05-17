@@ -28,6 +28,7 @@
 
 | Date | Sujet | Décision | Validé par |
 |------|-------|----------|------------|
+| 2026-05 | Serveur OVH | Dédié KS-5 `ns3138292` — IP 51.77.52.56 — Proxmox 9 préinstallé | Marwane |
 | | Samba AD vs Windows Server | | |
-| | Plages IP (LAN / DMZ / SOC / LAB) | | |
-| | Hôte Docker (VM dédiée ou LXC) | | |
+| 2026-05 | Plages IP internes | LAN .10 / DMZ .20 / SOC .30 / LAB-RT .99 | À valider équipe |
+| | Hôte Docker | VM dédiée docker-soc01 | |

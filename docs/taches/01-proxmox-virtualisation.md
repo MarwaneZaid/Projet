@@ -7,14 +7,16 @@
 
 **Prérequis :** [00-cadrage-equipe.md](00-cadrage-equipe.md) validé (P0)
 
+> **OVH :** Proxmox VE 9 est **déjà installé** sur `51.77.52.56` — voir [serveur-ovh-fiche.md](../infra/serveur-ovh-fiche.md).
+
 ---
 
 ## P0 — Bloquant
 
 | # | Tâche exacte | Comment faire | Validé |
 |---|--------------|---------------|--------|
-| 1.1 | Installer Proxmox VE sur le serveur bare metal | ISO officielle, installation standard | [ ] |
-| 1.2 | Accéder à l’UI `https://IP:8006` depuis poste admin | Certificat accepté, login root OK | [ ] |
+| 1.1 | ~~Installer Proxmox~~ — **déjà fait** sur OVH | — | [x] |
+| 1.2 | Accéder à l’UI `https://51.77.52.56:8006` | Certificat accepté, login root OK | [ ] |
 | 1.3 | Mettre à jour l’hôte : `apt update && apt full-upgrade` | Pas d’erreur apt | [ ] |
 
 ---
