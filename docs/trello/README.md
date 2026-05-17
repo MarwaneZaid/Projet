@@ -4,20 +4,31 @@
 
 Le board est **privé** : l’agent ne peut pas y ajouter des cartes sans vos identifiants. Deux options ci-dessous.
 
-## Option A — Import automatique (recommandé)
+## Option A — Enrichir le board actuel (recommandé)
 
-1. Créer une clé API : [trello.com/app-key](https://trello.com/app-key)
-2. Générer un **token** (lien sur la même page, droits `read,write`)
-3. Exporter les variables et lancer le script :
+Votre board utilise déjà le Kanban : Backlog → To Do → In Progress → Review → Done → Rapport.
+
+1. Clé API : [trello.com/app-key](https://trello.com/app-key)
+2. Générer un **token** (droits `read,write`)
+3. Lancer :
 
 ```bash
 cd /Users/skat/Desktop/Projet
+git pull
 export TRELLO_API_KEY="votre_cle"
 export TRELLO_TOKEN="votre_token"
+python3 scripts/trello_enrich_kanban.py
+```
+
+Ce script **complète les checklists** des cartes existantes (SOC, AD, pfSense, Red Team…), ajoute des descriptions et des cartes dans le Backlog — **sans casser** votre structure.
+
+## Option B — Board par phases (nouveau board vide)
+
+```bash
 python3 scripts/trello_import.py
 ```
 
-Le script crée les **listes**, **labels** et **cartes** (avec dates d’échéance et descriptions).
+Crée des listes par phase (Oct–Juil) avec ~70 cartes datées.
 
 ## Option B — Import manuel rapide
 
