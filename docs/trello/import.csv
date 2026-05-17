@@ -1,0 +1,75 @@
+List,Title,Description,Labels,Due Date
+📌 Équipe & règles,Lire README GitHub + cloner le dépôt,https://github.com/MarwaneZaid/Projet,,2025-10-20
+📌 Équipe & règles,Compléter TEAM.md (4 noms contacts binômes),Voir TEAM.md sur GitHub,Livrable,2025-11-15
+📌 Équipe & règles,Définir réunion hebdo + canal équipe,,,2025-11-15
+📌 Équipe & règles,Règles projet: pas de secrets Git / lab RT isolé,Documenter dans README,Bloquant,2025-11-15
+📌 Équipe & règles,Inviter coéquipiers GitHub collaborators,,,2025-11-20
+Phase 0 — Cadrage (Oct–Nov),Réunion kickoff — valider périmètre,,,2025-10-31
+Phase 0 — Cadrage (Oct–Nov),Valider plan opérationnel,docs/plan-operationnel.md,Livrable,2025-11-15
+Phase 0 — Cadrage (Oct–Nov),Remplir specs matériel serveur,docs/architecture/specs-materiel.md,E1-Infra,2025-11-20
+Phase 0 — Cadrage (Oct–Nov),Décision Samba AD ou Windows Server,,E2-Réseau,2025-11-25
+Phase 0 — Cadrage (Oct–Nov),Plan IP LAN DMZ SOC LAB-RT,docs/architecture/topologie-reseau.md,E1-Infra;E2-Réseau,2025-11-25
+Phase 0 — Cadrage (Oct–Nov),Schéma réseau v0 draw.io,,E1-Infra,2025-11-30
+Phase 0 — Cadrage (Oct–Nov),Configurer labels et listes Trello,,,2025-11-30
+Phase 0 — Cadrage (Oct–Nov),✅ Validation collective Phase 0,CHECKLIST.md phase 0,Livrable,2025-11-30
+Phase 1 — Infrastructure (Déc–Jan),Installer Proxmox VE,infra/proxmox/checklist-install.md,E1-Infra,2025-12-15
+Phase 1 — Infrastructure (Déc–Jan),Configurer stockage et snapshots,,E1-Infra,2025-12-20
+Phase 1 — Infrastructure (Déc–Jan),Créer vmbr0 LAN et vmbr1 DMZ,,E1-Infra,2025-12-22
+Phase 1 — Infrastructure (Déc–Jan),Template cloud-init VMs,,E1-Infra,2026-01-05
+Phase 1 — Infrastructure (Déc–Jan),VM pfSense installation,infra/pfsense/README.md,E2-Réseau,2026-01-10
+Phase 1 — Infrastructure (Déc–Jan),pfSense NAT DHCP réservations,,E2-Réseau,2026-01-12
+Phase 1 — Infrastructure (Déc–Jan),pfSense règles firewall LAN DMZ,,E2-Réseau,2026-01-15
+Phase 1 — Infrastructure (Déc–Jan),Tester isolation segments,,E2-Réseau,2026-01-18
+Phase 1 — Infrastructure (Déc–Jan),VM contrôleur AD,infra/active-directory/README.md,E2-Réseau,2026-01-20
+Phase 1 — Infrastructure (Déc–Jan),AD OU groupes utilisateurs test,,E2-Réseau,2026-01-22
+Phase 1 — Infrastructure (Déc–Jan),AD GPO audit et politique MDP,,E2-Réseau,2026-01-24
+Phase 1 — Infrastructure (Déc–Jan),Joindre 2 postes clients au domaine,,E2-Réseau,2026-01-26
+Phase 1 — Infrastructure (Déc–Jan),Activer forward logs sécurité AD,,E2-Réseau;E3-SOC,2026-01-28
+Phase 1 — Infrastructure (Déc–Jan),VM Linux hôte Docker réseau SOC,,E1-Infra,2026-01-28
+Phase 1 — Infrastructure (Déc–Jan),Inventaire VMs IP rôle ressources,,E1-Infra;Livrable,2026-01-30
+Phase 1 — Infrastructure (Déc–Jan),Export backup config pfSense,,E2-Réseau,2026-01-31
+Phase 1 — Infrastructure (Déc–Jan),✅ Validation collective Phase 1,CHECKLIST.md,Livrable,2026-01-31
+Phase 2 — SOC & Red Team (Fév–Mars),Configurer .env stack SOC,soc/.env.example,E3-SOC,2026-02-10
+Phase 2 — SOC & Red Team (Fév–Mars),Déployer Wazuh + Grafana docker compose,soc/docker-compose.yml,E3-SOC,2026-02-15
+Phase 2 — SOC & Red Team (Fév–Mars),pfSense ports agents Wazuh,,E2-Réseau;E3-SOC,2026-02-15
+Phase 2 — SOC & Red Team (Fév–Mars),Agent Wazuh sur AD,,E3-SOC,2026-02-20
+Phase 2 — SOC & Red Team (Fév–Mars),Agent Wazuh Docker + VM lab,,E3-SOC,2026-02-22
+Phase 2 — SOC & Red Team (Fév–Mars),Syslog pfSense vers Wazuh,,E2-Réseau;E3-SOC,2026-02-25
+Phase 2 — SOC & Red Team (Fév–Mars),Déployer Suricata + règles,,E3-SOC,2026-02-28
+Phase 2 — SOC & Red Team (Fév–Mars),Documenter SPAN miroir trafic,,E3-SOC,2026-02-28
+Phase 2 — SOC & Red Team (Fév–Mars),Grafana dashboard alertes,,E3-SOC,2026-03-05
+Phase 2 — SOC & Red Team (Fév–Mars),TheHive Cortex incident fictif,,E3-SOC,2026-03-10
+Phase 2 — SOC & Red Team (Fév–Mars),n8n alerte Wazuh vers email,,E3-SOC,2026-03-15
+Phase 2 — SOC & Red Team (Fév–Mars),Segment LAB-RT isolé sans route LAN,,E4-RedTeam;Bloquant,2026-03-10
+Phase 2 — SOC & Red Team (Fév–Mars),OpenVAS scan lab uniquement,,E4-RedTeam,2026-03-15
+Phase 2 — SOC & Red Team (Fév–Mars),BloodHound collecte lab AD,,E4-RedTeam,2026-03-20
+Phase 2 — SOC & Red Team (Fév–Mars),CALDERA déploiement agent lab,,E4-RedTeam,2026-03-22
+Phase 2 — SOC & Red Team (Fév–Mars),Scénario 1 brute force honeypot rapport,,E4-RedTeam;Livrable,2026-03-25
+Phase 2 — SOC & Red Team (Fév–Mars),Scénario 2 énumération AD rapport,,E4-RedTeam;Livrable,2026-03-28
+Phase 2 — SOC & Red Team (Fév–Mars),Corrélation alerte SOC et scénario RT,,E3-SOC;E4-RedTeam,2026-03-30
+Phase 2 — SOC & Red Team (Fév–Mars),✅ Validation collective Phase 2,,Livrable,2026-03-31
+Phase 3 — Automatisation (Avr–Mai),Inventaire Ansible hosts.yml,ansible/README.md,E3-SOC,2026-04-15
+Phase 3 — Automatisation (Avr–Mai),Playbook agent Wazuh,,E3-SOC,2026-04-20
+Phase 3 — Automatisation (Avr–Mai),Playbook hôte Docker SOC,,E3-SOC,2026-04-25
+Phase 3 — Automatisation (Avr–Mai),Test restore snapshot Proxmox,,E1-Infra,2026-04-30
+Phase 3 — Automatisation (Avr–Mai),Sauvegarde pfSense test restore,,E2-Réseau,2026-05-05
+Phase 3 — Automatisation (Avr–Mai),VPN site-to-site pfSense,,E2-Réseau,2026-05-15
+Phase 3 — Automatisation (Avr–Mai),Reverse proxy DMZ,,E2-Réseau,2026-05-20
+Phase 3 — Automatisation (Avr–Mai),Certificats TLS lab,,E2-Réseau,2026-05-22
+Phase 3 — Automatisation (Avr–Mai),Durcissement SSH hôte Docker,,E1-Infra,2026-05-25
+Phase 3 — Automatisation (Avr–Mai),✅ Validation collective Phase 3,,Livrable,2026-05-31
+Phase 4 — Tests & Livrables (Juin–Juil),Exercice SOC détection et réponse,,E3-SOC;Livrable,2026-06-15
+Phase 4 — Tests & Livrables (Juin–Juil),Exercice Red Team corrélation logs,,E4-RedTeam;Livrable,2026-06-20
+Phase 4 — Tests & Livrables (Juin–Juil),Rapport technique 10 pages,docs/livrables/rapport/,Livrable,2026-06-30
+Phase 4 — Tests & Livrables (Juin–Juil),WikiJS doc interne,,Livrable,2026-07-05
+Phase 4 — Tests & Livrables (Juin–Juil),Schémas réseau et SOC à jour,,Livrable,2026-07-05
+Phase 4 — Tests & Livrables (Juin–Juil),Pitch entreprise IT slides,,Livrable,2026-07-10
+Phase 4 — Tests & Livrables (Juin–Juil),Répétition démo orale,,Livrable,2026-07-12
+Phase 4 — Tests & Livrables (Juin–Juil),Présentation finale,,Livrable,2026-07-15
+Phase 4 — Tests & Livrables (Juin–Juil),✅ Validation collective Phase 4,,Livrable,2026-07-15
+🌐 Extension — Portail Audit (optionnel),Maquettes wireframes client admin,,E4-RedTeam;Optionnel,2026-04-30
+🌐 Extension — Portail Audit (optionnel),Schéma BDD PostgreSQL,,E4-RedTeam;Optionnel,2026-05-05
+🌐 Extension — Portail Audit (optionnel),MVP authentification client,portal/README.md,E4-RedTeam;Optionnel,2026-05-20
+🌐 Extension — Portail Audit (optionnel),Parcours commande audit,,E4-RedTeam;Optionnel,2026-05-31
+🌐 Extension — Portail Audit (optionnel),Dashboard admin devis,,E4-RedTeam;Optionnel,2026-06-15
+🌐 Extension — Portail Audit (optionnel),Intégration rapports SOC dans portail,,E3-SOC;E4-RedTeam;Optionnel,2026-06-30

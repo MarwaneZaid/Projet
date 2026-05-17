@@ -46,6 +46,13 @@ Chaque membre suit l’ensemble du projet ; les binômes valident collectivement
 | Juin | Tests intégrés (SOC, Red Team, Zero Trust) |
 | Juil. | Rapport, wiki, démo orale |
 
+## Suivi projet (Trello)
+
+Board : [trello.com/b/uPZIvZwK/projet](https://trello.com/b/uPZIvZwK/projet)
+
+- Structure et **70+ cartes** planifiées : [docs/trello/](docs/trello/)
+- Import automatique : `python3 scripts/trello_import.py` (voir [docs/trello/README.md](docs/trello/README.md))
+
 ## Démarrage rapide
 
 1. Lire [docs/plan-operationnel.md](docs/plan-operationnel.md) et compléter [TEAM.md](TEAM.md) (noms, binômes).
