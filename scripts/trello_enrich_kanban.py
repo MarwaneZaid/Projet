@@ -31,6 +31,18 @@ import urllib.request
 API = "https://api.trello.com/1"
 BOARD_SHORT = os.environ.get("TRELLO_BOARD_ID", "uPZIvZwK")
 
+PLACEHOLDER_VALUES = frozenset(
+    {
+        "",
+        "votre_cle",
+        "votre_token",
+        "your_key",
+        "your_token",
+        "xxx",
+        "changeme",
+    }
+)
+
 # Checklists à fusionner (noms d'items insensibles à la casse)
 CHECKLISTS: dict[str, list[str]] = {
     "Installation Proxmox": [
@@ -131,12 +143,61 @@ DESCRIPTIONS: dict[str, str] = {
 }
 
 
-def api(method: str, path: str, params: dict | None = None, body: dict | None = None):
-    key = os.environ.get("TRELLO_API_KEY")
-    token = os.environ.get("TRELLO_TOKEN")
+def auth_help(api_key: str | None = None) -> None:
+    key = (api_key or os.environ.get("TRELLO_API_KEY") or "").strip()
+    print(
+        """
+Erreur d'authentification Trello (401).
+
+Étapes :
+  1. Ouvrir https://trello.com/app-key (connecté avec le même compte que le board)
+  2. Copier la « API Key » (32 caractères)
+  3. Cliquer « Token » à droite → autoriser → copier le token affiché
+  4. Relancer :
+
+     export TRELLO_API_KEY="collez_la_vraie_cle_ici"
+     export TRELLO_TOKEN="collez_le_vrai_token_ici"
+     python3 scripts/trello_enrich_kanban.py
+
+Ne pas utiliser les textes « votre_cle » / « votre_token » : ce sont des exemples.
+""".strip(),
+        file=sys.stderr,
+    )
+    if key and key not in PLACEHOLDER_VALUES:
+        url = (
+            "https://trello.com/1/authorize"
+            f"?expiration=never&name=ProjetImport&scope=read,write"
+            f"&response_type=token&key={urllib.parse.quote(key)}"
+        )
+        print(f"\nLien pour générer un token :\n  {url}\n", file=sys.stderr)
+
+
+_creds: tuple[str, str] | None = None
+
+
+def require_credentials() -> tuple[str, str]:
+    global _creds
+    if _creds is not None:
+        return _creds
+    key = (os.environ.get("TRELLO_API_KEY") or "").strip()
+    token = (os.environ.get("TRELLO_TOKEN") or "").strip()
     if not key or not token:
-        print("Définir TRELLO_API_KEY et TRELLO_TOKEN → https://trello.com/app-key", file=sys.stderr)
+        print("Variables TRELLO_API_KEY et TRELLO_TOKEN manquantes.", file=sys.stderr)
+        auth_help(key or None)
         sys.exit(1)
+    if key.lower() in PLACEHOLDER_VALUES or token.lower() in PLACEHOLDER_VALUES:
+        print(
+            "Vous avez encore les valeurs d'exemple (votre_cle / votre_token).",
+            file=sys.stderr,
+        )
+        auth_help(key)
+        sys.exit(1)
+    _creds = (key, token)
+    return _creds
+
+
+def api(method: str, path: str, params: dict | None = None, body: dict | None = None):
+    key, token = require_credentials()
     q = {"key": key, "token": token}
     if params:
         q.update(params)
@@ -147,9 +208,16 @@ def api(method: str, path: str, params: dict | None = None, body: dict | None = 
         data = urllib.parse.urlencode(body).encode()
         headers["Content-Type"] = "application/x-www-form-urlencoded"
     req = urllib.request.Request(url, data=data, method=method, headers=headers)
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        raw = resp.read().decode()
-        return {} if not raw else json.loads(raw)
+    try:
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            raw = resp.read().decode()
+            return {} if not raw else json.loads(raw)
+    except urllib.error.HTTPError as e:
+        if e.code == 401:
+            auth_help(key)
+        else:
+            print(f"API {method} {path} → {e.code}: {e.read().decode()}", file=sys.stderr)
+        raise SystemExit(1) from e
 
 
 def find_card(cards: list, name: str) -> dict | None:

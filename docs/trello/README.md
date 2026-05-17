@@ -8,17 +8,20 @@ Le board est **privé** : l’agent ne peut pas y ajouter des cartes sans vos id
 
 Votre board utilise déjà le Kanban : Backlog → To Do → In Progress → Review → Done → Rapport.
 
-1. Clé API : [trello.com/app-key](https://trello.com/app-key)
-2. Générer un **token** (droits `read,write`)
-3. Lancer :
+1. Ouvrir [trello.com/app-key](https://trello.com/app-key) (compte **Marwane Zaid** ou celui qui possède le board)
+2. Copier la **API Key** (longue chaîne alphanumérique)
+3. Sur la même page, cliquer le lien **Token** → autoriser → copier le token affiché (une seule fois visible)
+4. Lancer en remplaçant par vos **vraies** valeurs :
 
 ```bash
-cd /Users/skat/Desktop/Projet
+cd ~/Desktop/Projet
 git pull
-export TRELLO_API_KEY="votre_cle"
-export TRELLO_TOKEN="votre_token"
+export TRELLO_API_KEY="abc123...votre_vraie_cle"
+export TRELLO_TOKEN="ATT...votre_vrai_token"
 python3 scripts/trello_enrich_kanban.py
 ```
+
+> Erreur `401 Unauthorized` = clé ou token invalide, ou vous avez laissé `votre_cle` / `votre_token` (texte d'exemple).
 
 Ce script **complète les checklists** des cartes existantes (SOC, AD, pfSense, Red Team…), ajoute des descriptions et des cartes dans le Backlog — **sans casser** votre structure.
 
