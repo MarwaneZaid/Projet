@@ -1,6 +1,7 @@
 # Serveur OVH — démarrage projet
 
-**Manager :** [manager.eu.ovhcloud.com](https://manager.eu.ovhcloud.com/#/hub/)
+**Manager :** [manager.eu.ovhcloud.com](https://manager.eu.ovhcloud.com/#/hub/)  
+**API (scripts) :** [ovh-api.md](ovh-api.md) — `GET /me`, `/dedicated/server`, `/vps`
 
 Ce serveur est votre **hôte unique** pour Proxmox et toutes les VMs du projet.
 
