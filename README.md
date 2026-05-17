@@ -65,7 +65,7 @@ Chaque membre suit l’ensemble du projet ; les binômes valident collectivement
 
 ## Démarrage rapide
 
-1. Commencer par [docs/taches/00-cadrage-equipe.md](docs/taches/00-cadrage-equipe.md) (P0).
+1. Commencer par [docs/taches/00-cadrage-equipe.md](docs/taches/00-cadrage-equipe.md) (P0) + [docs/infra/ovh-serveur.md](docs/infra/ovh-serveur.md) (serveur OVH).
 2. Lire [docs/plan-operationnel.md](docs/plan-operationnel.md) et compléter [TEAM.md](TEAM.md) (noms, binômes).
 2. Renseigner les specs serveur dans [docs/architecture/specs-materiel.md](docs/architecture/specs-materiel.md).
 3. Phase infra : suivre [infra/README.md](infra/README.md).

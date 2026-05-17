@@ -2,15 +2,23 @@
 
 À compléter par l’équipe avant installation Proxmox.
 
-## Serveur hôte
+**Hébergeur :** OVH — [manager.eu.ovhcloud.com](https://manager.eu.ovhcloud.com/#/hub/)  
+**Guide pas à pas :** [docs/infra/ovh-serveur.md](../infra/ovh-serveur.md)
+
+## Serveur hôte OVH
 
 | Paramètre | Valeur |
 |-----------|--------|
+| Fournisseur | OVHcloud |
+| Type de service | _Dedicated / VPS / Public Cloud — à remplir_ |
+| Nom du serveur (manager) | _ex. ns123456.ip-XX-XX-XX.eu_ |
 | CPU | _modèle / cœurs / threads_ |
 | RAM totale | _Go_ |
-| Stockage | _SSD/HDD, capacité, RAID ?_ |
-| Réseau | _1 ou 2 NIC, débit_ |
-| IP management Proxmox | _ex. 10.0.0.10/24_ |
+| Stockage | _SSD/NVMe, capacité Go_ |
+| Réseau | _1 IP publique / vRack oui-non_ |
+| IP publique | _x.x.x.x_ |
+| IP management Proxmox | _IP publique ou tunnel ; pas de secret dans Git_ |
+| Accès | _SSH clés : qui les possède (TEAM.md)_ |
 
 ## Budget RAM recommandé (indicatif)
 

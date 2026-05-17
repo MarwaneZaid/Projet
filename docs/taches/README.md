@@ -26,6 +26,7 @@ P0 Cadrage → P1 Infra (Proxmox → pfSense → AD) → P1 Docker host
 | Fichier | Périmètre | Responsable | Priorité max |
 |---------|-----------|-------------|--------------|
 | [00-cadrage-equipe.md](00-cadrage-equipe.md) | Plan, équipe, IP, matériel | Tous | P0 |
+| [../infra/ovh-serveur.md](../infra/ovh-serveur.md) | Serveur OVH : accès, firewall, Proxmox | Étudiant 1 | P0–P1 |
 | [01-proxmox-virtualisation.md](01-proxmox-virtualisation.md) | Proxmox, VMs, stockage | Étudiant 1 | P1 |
 | [02-reseau-pfsense.md](02-reseau-pfsense.md) | pfSense, NAT, firewall, DHCP | Étudiant 2 | P1 |
 | [03-active-directory.md](03-active-directory.md) | AD, GPO, logs | Étudiant 2 | P1 |

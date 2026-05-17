@@ -13,7 +13,7 @@
 | 0.1 | Compléter [TEAM.md](../../TEAM.md) : 4 noms, emails, binômes | Fichier à jour | [ ] |
 | 0.2 | Choisir jour/heure **réunion hebdo** + canal (Discord/Teams) | Noté dans TEAM.md | [ ] |
 | 0.3 | Lire et valider [plan-operationnel.md](../plan-operationnel.md) | 4 signatures orales + date en TEAM.md | [ ] |
-| 0.4 | Renseigner [specs-materiel.md](../architecture/specs-materiel.md) : CPU, RAM, disques, NIC | Tableau rempli | [ ] |
+| 0.4 | Renseigner [specs-materiel.md](../architecture/specs-materiel.md) + [ovh-serveur.md](../infra/ovh-serveur.md) : type OVH, CPU, RAM, IP | Tableau rempli | [ ] |
 | 0.5 | **Décision écrite** : Samba AD **ou** Windows Server (RAM/licence) | Ligne dans TEAM.md « Décisions » | [ ] |
 | 0.6 | Définir plages IP : LAN, DMZ, SOC, LAB-RT (Red Team isolé) | [topologie-reseau.md](../architecture/topologie-reseau.md) | [ ] |
 | 0.7 | Schéma réseau v0 (draw.io ou équivalent) export PNG dans `docs/architecture/diagrams/` | Fichier PNG + lien dans markdown | [ ] |
