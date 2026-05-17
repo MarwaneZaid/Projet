@@ -2,6 +2,8 @@
 
 Cocher et dater quand **toute l’équipe** a validé.
 
+**Détail des tâches :** voir [docs/taches/README.md](docs/taches/README.md) (fichier par partie avec priorités P0–P5).
+
 ## Phase 0 — Cadrage (Oct. – Nov.)
 
 - [ ] Plan opérationnel relu et accepté par les 4

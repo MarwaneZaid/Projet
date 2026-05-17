@@ -46,16 +46,27 @@ Chaque membre suit l’ensemble du projet ; les binômes valident collectivement
 | Juin | Tests intégrés (SOC, Red Team, Zero Trust) |
 | Juil. | Rapport, wiki, démo orale |
 
-## Suivi projet (Trello)
+## Suivi des tâches (GitHub)
 
-Board : [trello.com/b/uPZIvZwK/projet](https://trello.com/b/uPZIvZwK/projet)
+**Guide principal :** [docs/taches/README.md](docs/taches/README.md) — une fiche détaillée par partie (P0 → P5, priorités, cases à cocher).
 
-- Structure et **70+ cartes** planifiées : [docs/trello/](docs/trello/)
-- Import automatique : `python3 scripts/trello_import.py` (voir [docs/trello/README.md](docs/trello/README.md))
+| Partie | Fichier |
+|--------|---------|
+| Cadrage | [docs/taches/00-cadrage-equipe.md](docs/taches/00-cadrage-equipe.md) |
+| Proxmox | [docs/taches/01-proxmox-virtualisation.md](docs/taches/01-proxmox-virtualisation.md) |
+| pfSense | [docs/taches/02-reseau-pfsense.md](docs/taches/02-reseau-pfsense.md) |
+| Active Directory | [docs/taches/03-active-directory.md](docs/taches/03-active-directory.md) |
+| SOC | [docs/taches/04-soc.md](docs/taches/04-soc.md) |
+| Red Team | [docs/taches/05-red-team.md](docs/taches/05-red-team.md) |
+| Ansible | [docs/taches/06-automatisation-ansible.md](docs/taches/06-automatisation-ansible.md) |
+| VPN / DMZ | [docs/taches/07-vpn-dmz-reverse-proxy.md](docs/taches/07-vpn-dmz-reverse-proxy.md) |
+| Rapport & démo | [docs/taches/08-livrables-rapport.md](docs/taches/08-livrables-rapport.md) |
+| Portail (optionnel) | [docs/taches/09-portail-audit.md](docs/taches/09-portail-audit.md) |
 
 ## Démarrage rapide
 
-1. Lire [docs/plan-operationnel.md](docs/plan-operationnel.md) et compléter [TEAM.md](TEAM.md) (noms, binômes).
+1. Commencer par [docs/taches/00-cadrage-equipe.md](docs/taches/00-cadrage-equipe.md) (P0).
+2. Lire [docs/plan-operationnel.md](docs/plan-operationnel.md) et compléter [TEAM.md](TEAM.md) (noms, binômes).
 2. Renseigner les specs serveur dans [docs/architecture/specs-materiel.md](docs/architecture/specs-materiel.md).
 3. Phase infra : suivre [infra/README.md](infra/README.md).
 4. Avant toute attaque simulée : isoler le lab Red Team et documenter le périmètre légal/école.
