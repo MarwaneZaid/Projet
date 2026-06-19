@@ -1,86 +1,102 @@
-# Mini-Cloud SOC & Red Team — Projet équipe (4 personnes)
+# NexaMind — Projet annuel ESGI (cybersécurité)
 
-Plateforme de virtualisation, Active Directory, SOC, Red Team et portail d’audit de sécurité — déployée sur serveur à ressources limitées (Proxmox).
+Entreprise fictive **NexaMind SAS** : infra Proxmox, SOC Wazuh, portail client, Active Directory, démo attaque/détection.
 
-## Équipe & inversion des rôles
+**Serveur :** OVH `ns3138292` · `51.77.52.56` · Proxmox via VPN → `https://192.168.20.254:8006`
 
-| Poste | Profil d’origine | Rôle dans le projet |
-|-------|------------------|---------------------|
-| Étudiant 1 | Cybersécurité | Infrastructure & virtualisation (Proxmox, VM, topologie) |
-| Étudiant 2 | Cybersécurité | Réseau & Windows (pfSense, AD, logs) |
-| Étudiant 3 | Réseau & systèmes | SOC & automatisation (Wazuh, Suricata, n8n, Grafana…) |
-| Étudiant 4 | Réseau & systèmes | Red Team & portail client (CALDERA, BloodHound, site web) |
+---
 
-Chaque membre suit l’ensemble du projet ; les binômes valident collectivement chaque phase (voir [CHECKLIST.md](CHECKLIST.md)).
+## État du projet (juin 2026)
 
-## Objectifs
+**Document détaillé :** [docs/ETAT-PROJET.md](docs/ETAT-PROJET.md) · **Fin de projet :** [docs/livrables/FIN-PROJET-CHECKLIST.md](docs/livrables/FIN-PROJET-CHECKLIST.md)
 
-- Mini-cloud **Proxmox VE**
-- **Active Directory** (Samba AD ou Windows Server selon choix matériel)
-- **SOC** : Wazuh, Suricata, TheHive, Cortex, Grafana
-- **Red Team** : CALDERA, BloodHound, OpenVAS — scénarios simulés uniquement
-- **VPN** site-to-site, **DMZ**, reverse proxy
-- Extension : **portail client / admin** (branche Audit de Sécurité)
+### Équipe
+
+| Membre | Rôle |
+|--------|------|
+| **Victor** | Portail web + Wazuh (`192.168.20.20` / `.22`) + IA |
+| **Jacques** | AD Samba `cybernest.local` + `client-win-1` |
+| **Abdoul** | pfSense + VPN + doc infra |
+| **Marwane** | Passbolt + Suricata + Kali Docker |
+
+### Résumé rapide
+
+| Brique | État |
+|--------|------|
+| Proxmox, pfSense, VPN | ✅ Fait |
+| Portail web + alertes | ✅ Fait (Victor) |
+| Wazuh SOC + détection portail | ✅ Fait (Victor, VM 201) |
+| Samba AD installé | ✅ VM up, 🟡 **vide** (Jacques) |
+| Passbolt installé | ✅ 🟡 **à remplir** (Marwane) |
+| Suricata + Kali Docker | 🟡 À faire (Marwane) |
+| Agents Wazuh AD/Windows | 🟡 À faire (Victor) |
+| Rapport + démo soutenance | 🟡 Juillet 2026 |
+
+### VMs clés
+
+```
+192.168.20.1   pfSense          192.168.20.20  portail
+192.168.20.10  AD               192.168.20.22  Wazuh (référence)
+192.168.20.18  Suricata (107)   192.168.20.254 Proxmox
+```
+
+---
+
+## Dépôts équipe
+
+| Repo | Usage |
+|------|--------|
+| **Ce dépôt** | Suivi tâches, runbooks, scripts, livrables |
+| [moralisateur380/projet_annuel](https://github.com/moralisateur380/projet_annuel) | Kit NexaMind V2, code portail, scénario démo |
+| [Abdoulmyges/Projet-Pro_4esgi](https://github.com/Abdoulmyges/Projet-Pro_4esgi) | Wiki infra (pfSense, VPN, AD, Passbolt) |
+
+Workflow Git : **une branche par membre → merge sur `main`**.
+
+---
 
 ## Structure du dépôt
 
 ```
-├── docs/              # Rapport, wiki, schémas, procédures
-├── infra/             # Proxmox, pfSense, AD, VPN
-├── soc/               # Stack Docker SOC
-├── redteam/           # Stack Docker Red Team (lab isolé)
-├── portal/            # Site client + admin (extension)
-├── ansible/           # Automatisation & sauvegardes
-├── TEAM.md            # Contacts, réunions, décisions
-└── CHECKLIST.md       # Validation par phase
+├── docs/
+│   ├── ETAT-PROJET.md      ← état fait / à faire (à jour)
+│   ├── taches/             ← fiches P0–P5 par partie
+│   ├── wiki/               ← runbooks pas à pas
+│   ├── infra/              ← OVH, Proxmox
+│   └── livrables/          ← captures, preuves MVP
+├── scripts/                ← OVH, Proxmox, SOC
+├── soc/                    ← docker-compose Wazuh (référence)
+├── portal/                 ← squelette (code principal chez Victor)
+├── infra/                  ← pfSense, AD
+└── _upstream/              ← clones analyse (non versionné idéalement)
 ```
 
-## Calendrier prévisionnel
-
-| Période | Focus |
-|---------|--------|
-| Oct. – Nov. | Plan, périmètre, répartition validée |
-| Déc. – Jan. | Infra : Proxmox, pfSense, AD, hôte Docker Linux |
-| Fév. – Mars | SOC + Red Team en conteneurs |
-| Avr. – Mai | Ansible, sauvegardes, durcissement |
-| Juin | Tests intégrés (SOC, Red Team, Zero Trust) |
-| Juil. | Rapport, wiki, démo orale |
-
-## Suivi des tâches (GitHub)
-
-**Guide principal :** [docs/taches/README.md](docs/taches/README.md) — une fiche détaillée par partie (P0 → P5, priorités, cases à cocher).
-
-| Partie | Fichier |
-|--------|---------|
-| Cadrage | [docs/taches/00-cadrage-equipe.md](docs/taches/00-cadrage-equipe.md) |
-| Proxmox | [docs/taches/01-proxmox-virtualisation.md](docs/taches/01-proxmox-virtualisation.md) |
-| pfSense | [docs/taches/02-reseau-pfsense.md](docs/taches/02-reseau-pfsense.md) |
-| Active Directory | [docs/taches/03-active-directory.md](docs/taches/03-active-directory.md) |
-| SOC | [docs/taches/04-soc.md](docs/taches/04-soc.md) |
-| Red Team | [docs/taches/05-red-team.md](docs/taches/05-red-team.md) |
-| Ansible | [docs/taches/06-automatisation-ansible.md](docs/taches/06-automatisation-ansible.md) |
-| VPN / DMZ | [docs/taches/07-vpn-dmz-reverse-proxy.md](docs/taches/07-vpn-dmz-reverse-proxy.md) |
-| Rapport & démo | [docs/taches/08-livrables-rapport.md](docs/taches/08-livrables-rapport.md) |
-| Portail (optionnel) | [docs/taches/09-portail-audit.md](docs/taches/09-portail-audit.md) |
+---
 
 ## Démarrage rapide
 
-1. Commencer par [docs/taches/00-cadrage-equipe.md](docs/taches/00-cadrage-equipe.md) (P0) + [docs/infra/ovh-serveur.md](docs/infra/ovh-serveur.md) (serveur OVH).
-2. Lire [docs/plan-operationnel.md](docs/plan-operationnel.md) et compléter [TEAM.md](TEAM.md) (noms, binômes).
-2. Renseigner les specs serveur dans [docs/architecture/specs-materiel.md](docs/architecture/specs-materiel.md).
-3. Phase infra : suivre [infra/README.md](infra/README.md).
-4. Avant toute attaque simulée : isoler le lab Red Team et documenter le périmètre légal/école.
+1. Se connecter au **VPN OpenVPN** (profil `.ovpn` personnel)
+2. Lire [docs/ETAT-PROJET.md](docs/ETAT-PROJET.md)
+3. Aller dans **son guide** (kit Victor V2, dossier 02–05)
+4. Secrets → **Passbolt** uniquement (pas Discord, pas Git)
 
-## Livrables finaux
+**Infra OVH :** [docs/infra/01-firewall-ovh.md](docs/infra/01-firewall-ovh.md) · [02-premier-acces-proxmox.md](docs/infra/02-premier-acces-proxmox.md)
 
-- Rapport technique (~10 pages)
-- Documentation WikiJS (client + interne)
-- Schéma réseau + architecture SOC
-- Pitch « entreprise IT »
-- Site web (si extension réalisée)
+**Tâches détaillées :** [docs/taches/README.md](docs/taches/README.md)
 
-## Règles d’équipe
+---
 
-- **Pas de secrets dans Git** — utiliser `.env` local (voir `.env.example` par stack).
-- **Validation collective** avant passage à la phase suivante ([CHECKLIST.md](CHECKLIST.md)).
-- **Red Team** : uniquement sur VMs/lab dédiés, jamais sur production ou réseau campus sans accord écrit.
+## Règles d'équipe
+
+- Pas de secrets dans Git (`.env` local, Passbolt pour l'équipe)
+- Wazuh officiel : **Victor** / `srv-wazuh-1` / `192.168.20.22`
+- Validation collective avant soutenance → [CHECKLIST.md](CHECKLIST.md)
+- Red Team : lab isolé, scénarios contrôlés uniquement
+
+---
+
+## Livrables finaux (juillet 2026)
+
+- Rapport technique ~12 pages
+- Démo live 35 min (attaque → détection → portail) + **vidéo de secours**
+- Schémas architecture + flux attaque
+- Wiki / procédures à jour sur `main`

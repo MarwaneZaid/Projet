@@ -1,0 +1,13 @@
+# Kali léger pour démo Red Team — à lancer sur srv-soc-1 (107) ou toute VM Debian
+# Usage : docker compose -f docker-compose.kali.yml run --rm kali ./attaque-test.sh
+services:
+  kali:
+    image: kalilinux/kali-rolling
+    network_mode: host
+    volumes:
+      - ./attaque-test.sh:/opt/attaque-test.sh:ro
+    working_dir: /opt
+    entrypoint: ["/bin/bash", "-c"]
+    command: ["apt-get update -qq && apt-get install -y -qq openssh-client nmap hydra 2>/dev/null; exec bash"]
+    stdin_open: true
+    tty: true

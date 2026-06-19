@@ -2,6 +2,9 @@
 
 **Responsable lead** : Étudiant 3 · **Relecteur** : Étudiant 4
 
+**Guide complet (définitions, architecture, compétences, procédure) :** [docs/wiki/README-SOC-GUIDE-COMPLET.md](../docs/wiki/README-SOC-GUIDE-COMPLET.md)  
+**Runbook actions rapides :** [docs/wiki/04-mvp-soc-runbook-unifie.md](../docs/wiki/04-mvp-soc-runbook-unifie.md)
+
 ## Prérequis
 
 - VM Linux avec Docker (≥ 8 Go RAM pour Wazuh + Grafana)

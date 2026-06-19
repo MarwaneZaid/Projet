@@ -41,24 +41,29 @@ Crée des listes par phase (Oct–Juil) avec ~70 cartes datées.
 
 ## Labels à créer sur Trello
 
-| Label | Couleur | Usage |
-|-------|---------|--------|
-| E1-Infra | vert | Étudiant 1 |
-| E2-Réseau | bleu | Étudiant 2 |
-| E3-SOC | violet | Étudiant 3 |
-| E4-RedTeam | rouge | Étudiant 4 |
-| Livrable | jaune | Remise rapport / démo |
-| Bloquant | rouge foncé | Dépendance critique |
-| Optionnel | gris | Extension portail |
+
+| Label      | Couleur     | Usage                 |
+| ---------- | ----------- | --------------------- |
+| E1-Infra   | vert        | Étudiant 1            |
+| E2-Réseau  | bleu        | Étudiant 2            |
+| E3-SOC     | violet      | Étudiant 3            |
+| E4-RedTeam | rouge       | Étudiant 4            |
+| Livrable   | jaune       | Remise rapport / démo |
+| Bloquant   | rouge foncé | Dépendance critique   |
+| Optionnel  | gris        | Extension portail     |
+
 
 ## Calendrier (année scolaire)
 
-| Phase | Période | Date limite cartes |
-|-------|---------|-------------------|
-| 0 Cadrage | Oct – Nov 2025 | 30/11/2025 |
-| 1 Infra | Déc – Jan 2026 | 31/01/2026 |
-| 2 SOC / RT | Fév – Mars 2026 | 31/03/2026 |
-| 3 Auto | Avr – Mai 2026 | 31/05/2026 |
-| 4 Livrables | Juin – Juil 2026 | 15/07/2026 |
+
+| Phase       | Période          | Date limite cartes |
+| ----------- | ---------------- | ------------------ |
+| 0 Cadrage   | Oct – Nov 2025   | 30/11/2025         |
+| 1 Infra     | Déc – Jan 2026   | 31/01/2026         |
+| 2 SOC / RT  | Fév – Mars 2026  | 31/03/2026         |
+| 3 Auto      | Avr – Mai 2026   | 31/05/2026         |
+| 4 Livrables | Juin – Juil 2026 | 15/07/2026         |
+
 
 > En mai 2026 : prioriser les cartes **non cochées** des phases 1–3, puis phase 4.
+

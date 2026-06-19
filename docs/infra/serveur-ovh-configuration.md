@@ -6,10 +6,12 @@ Serveur : `ns3138292.ip-51-77-52.eu` — IP **51.77.52.56** — Proxmox 9 déjà
 
 ## Phase A — Sécurité OVH (P0)
 
+**Guide détaillé :** [01-firewall-ovh.md](01-firewall-ovh.md)
+
 | # | Action | Où | Statut |
 |---|--------|-----|--------|
-| A1 | Firewall réseau OVH : autoriser **22/tcp** (SSH) uniquement depuis IP équipe/école | Manager → IP → Firewall | [ ] |
-| A2 | Autoriser **8006/tcp** (Proxmox) uniquement depuis IP admin | Idem | [ ] |
+| A1 | Firewall réseau OVH : autoriser **22/tcp** (SSH) uniquement depuis IP équipe/école | Manager → IP → Firewall | [ ] **bloquant** |
+| A2 | Autoriser **8006/tcp** (Proxmox) uniquement depuis IP admin | Idem | [ ] **bloquant** |
 | A3 | Bloquer le reste en entrée sur IPv4 publique | Idem | [ ] |
 | A4 | Activer **monitoring OVH** sur le serveur (optionnel mais utile) | Fiche serveur → Service status | [ ] |
 | A5 | Clés SSH pour les 4 membres (pas mot de passe root partagé) | `~/.ssh/authorized_keys` | [ ] |

@@ -21,6 +21,10 @@ P0 Cadrage → P1 Infra (Proxmox → pfSense → AD) → P1 Docker host
          → P4 Tests intégrés + rapport → P5 Portail (si temps)
 ```
 
+## Répartition par membre (détaillée)
+
+**Guide complet :** [repartition-detaillee-equipe.md](repartition-detaillee-equipe.md) — qui fait quoi, comment, pourquoi, ordre chronologique.
+
 ## Fichiers par partie
 
 | Fichier | Périmètre | Responsable | Priorité max |
