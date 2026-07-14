@@ -1,0 +1,9 @@
+# NexaMind lab — règles IDS internes (192.168.20.0/24)
+# Déploie via scripts/redteam/install-suricata-lab-rules.sh
+# Couvre le trafic attaquant (.18) → cibles lab (.20, .16) absent des règles ET EXTERNAL_NET
+
+alert tcp 192.168.20.18 any -> 192.168.20.0/24 any (msg:"NEXAMIND LAB TCP Port Scan (nmap recon)"; flags:S; threshold: type threshold, track by_src, count 12, seconds 45; classtype:attempted-recon; sid:9000001; rev:1;)
+
+alert tcp 192.168.20.18 any -> 192.168.20.20 22 (msg:"NEXAMIND LAB SSH Brute Force (Hydra)"; flow:to_server; flags:S; threshold: type threshold, track by_src, count 4, seconds 90; classtype:attempted-admin; sid:9000002; rev:1;)
+
+alert tcp 192.168.20.18 any -> 192.168.20.16 22 (msg:"NEXAMIND LAB SSH Login Attempts AD"; flow:to_server; flags:S; threshold: type threshold, track by_src, count 3, seconds 90; classtype:attempted-admin; sid:9000003; rev:1;)
